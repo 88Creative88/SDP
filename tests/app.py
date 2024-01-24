@@ -10,7 +10,7 @@ def hello_world():
 
 @app.route('/cpu/temp')
 def cpu_temp():
-    return 'CPU Temperature'
+    return 'CPU Temper'
 
 @app.route('/cpu/temp/error')
 def cpu_temp_error():
