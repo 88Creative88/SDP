@@ -1,7 +1,4 @@
 from flask import Flask
-from flask import Blueprint
-
-
 
 
 app = Flask(__name__)
@@ -23,10 +20,8 @@ def cpu_temp_error():
 def disk_usage():
     return 'Disk Usage'
 
-
 def create_app():
     app = Flask(__name__)
-
     return app
 
 if __name__ == '__main__':
