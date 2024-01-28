@@ -20,14 +20,17 @@ def cpu_temp():
 def cpu_temp_error():
     cpu = CPUTemperature()
     if cpu.temperature > 60:
+        print("too hot")
         return "too hot"
     else:
+        print("fine")
         return "fine"
     #return 'CPU Temperature Error'
 
 @app.route('/disk/usage')
 def disk_usage():
     usage = psutil.disk_usage('/')
+    print(usage)
     return f"{usage.percent}"
     #return 'Disk Usage'
 
