@@ -5,8 +5,8 @@
 #RUN apk update
 #RUN apk add python3-dev
 
-FROM arm32v7/python:3.8-slim as base
-RUN apt-get update && apt-get install -y --no-install-recommends python3-dev
+FROM arm32v6/python:3.8-alpine as base
+RUN apk update && apk add python3-dev
 
 WORKDIR /app
 COPY requirements/base.txt .
