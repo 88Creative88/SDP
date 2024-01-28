@@ -3,7 +3,7 @@
 # Base stage for production
 FROM arm32v7/python:3.8-alpine as base
 RUN apk update
-RUN apk add --no-cache python3-dev gcc libc-dev libffi-dev
+RUN apk add python3-dev
 
 WORKDIR /app
 COPY requirements/base.txt .
