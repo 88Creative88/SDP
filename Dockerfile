@@ -6,10 +6,10 @@
 #RUN apk add python3-dev
 
 FROM arm32v6/python:3.8-alpine as base
-RUN apk update && apk add python3-dev
+RUN apk update && apk add python3-dev gcc libc-dev libffi-dev
 
 WORKDIR /app
-ENV FLASK_APP=flaskr
+ENV FLASK_APP=tests/app
 
 COPY requirements/base.txt .
 RUN pip install --no-cache-dir -r base.txt
