@@ -1,12 +1,9 @@
 
 
 # Base stage for production
-FROM arm32v7/python:3.8-slim as base
-RUN apk update
-RUN apk add python3-dev \
-            gcc \
-            libc-dev \
-            libffi-dev
+FROM arm32v7/python:3.8-alpine as base
+RUN apk update && apk add python3-dev gcc libc-dev libffi-dev
+
 WORKDIR /app
 COPY requirements/base.txt .
 RUN pip install --no-cache-dir -r base.txt
