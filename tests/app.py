@@ -18,12 +18,14 @@ def cpu_temp():
 
 @app.route('/cpu/temp/error')
 def cpu_temp_error():
-    cpu = CPUTemperature()
-    if cpu.temperature > 60:
-        print("too hot")
+    cpu = 20
+   # cpu = CPUTemperature()
+    #if cpu.temperature > 60:
+    if cpu < 60:
+       # print("too hot")
         return "too hot"
     else:
-        print("fine")
+       # print("fine")
         return "fine"
     #return 'CPU Temperature Error'
 

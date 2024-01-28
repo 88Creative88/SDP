@@ -13,6 +13,8 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
     - name: Build and push
+      #run: docker build --target testing . --tag flask-mio
+
       uses: docker/build-push-action@v2
       with:
         context: .
@@ -20,3 +22,5 @@ jobs:
         push: false
         tags: myapp:test
         platforms: linux/arm/v6
+    - name: Run tests
+      run: docker build --target test . --tag flask-mio
