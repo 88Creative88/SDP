@@ -16,7 +16,6 @@ jobs:
       #run: docker build --target testing . --tag flask-mio
     - name: Run tests
       run: docker build --target test . --tag flask-mio
-
       uses: docker/build-push-action@v2
       with:
         context: .
