@@ -9,6 +9,8 @@ FROM arm32v6/python:3.8-alpine as base
 RUN apk update && apk add python3-dev
 
 WORKDIR /app
+ENV FLASK_APP=flaskr
+
 COPY requirements/base.txt .
 RUN pip install --no-cache-dir -r base.txt
 COPY . .
