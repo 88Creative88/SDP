@@ -1,7 +1,7 @@
 
 
 # Base stage for production
-FROM arm32v6/python:3.8-slim as base
+FROM arm32v7/python:3.8-slim as base
 RUN apk update
 RUN apk add python3-dev \
             gcc \
