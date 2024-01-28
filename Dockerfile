@@ -13,7 +13,15 @@ FROM base as test
 COPY requirements/test.txt .
 RUN pip install --no-cache-dir -r test.txt
 COPY tests/ /app/tests/
-RUN ["pytest", "-m", "unit"]
+
+RUN ["flake8", "flaskr/"]
+RUN ["flake8", "tests/"]
+
+RUN ["coverage", "run", "-m", "pytest", "-m", "unit"]
+RUN ["coverage", "run", "-m", "pytest", "-m", "api"]
+RUN ["coverage", "report", "--fail-under", "80"]
+
+#RUN ["pytest", "-m", "unit"]
 #RUN ["pytest", "-m", "api"]
 
 FROM base as prod
