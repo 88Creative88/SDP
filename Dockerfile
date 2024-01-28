@@ -18,9 +18,11 @@ COPY . .
 
 # Test stage for testing
 FROM base as test
-COPY requirements/test.txt .
-RUN pip install --no-cache-dir -r test.txt
-COPY tests/ /app/tests/
+COPY requirements/test.txt ./requirements/test.txt
+RUN pip3 install -r requirements/test.txt
+
+COPY .coveragerc ./.coveragerc
+COPY tests ./tests
 
 RUN ["flake8", "flaskr/"]
 RUN ["flake8", "tests/"]
