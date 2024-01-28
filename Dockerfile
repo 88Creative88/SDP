@@ -12,7 +12,9 @@ COPY . .
 FROM base as test
 COPY requirements/test.txt .
 RUN pip install --no-cache-dir -r test.txt
-RUN ["pytest"]
+COPY tests/ /app/tests/
+RUN ["pytest", "-m", "unit"]
+#RUN ["pytest", "-m", "api"]
 
 FROM base as prod
 

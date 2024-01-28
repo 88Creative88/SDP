@@ -1,7 +1,4 @@
 from flask import Flask
-from flask import Blueprint
-
-
 
 
 app = Flask(__name__)
@@ -13,7 +10,7 @@ def hello_world():
 
 @app.route('/cpu/temp')
 def cpu_temp():
-    return 'CPU Temperature'
+    return 'CPU Temper'
 
 @app.route('/cpu/temp/error')
 def cpu_temp_error():
@@ -23,6 +20,9 @@ def cpu_temp_error():
 def disk_usage():
     return 'Disk Usage'
 
+def create_app():
+    app = Flask(__name__)
+    return app
 
 if __name__ == '__main__':
     app.run()
